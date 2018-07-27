@@ -1,0 +1,53 @@
+$main-color: #58d3f4;
+$editing-color: #e57373;
+
+.vehicles {
+
+	button {
+		background-color: white;
+		padding: 5px 10px;
+		border-radius: 3px;
+		border: 1px solid #AAA;
+    font-size: 14px;
+    cursor: pointer;
+	}
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid darken($main-color, 10%);
+
+    thead {
+      text-align: left;
+      background-color: $main-color;
+      color: white;
+
+      th {
+        padding: 10px;
+      }
+    }
+
+    tbody tr {
+      &:nth-child(odd) {
+        background-color: lighten($main-color, 25%);
+      }
+
+      &.editing {
+        background-color: $editing-color;
+      }
+
+      td {
+        padding: 10px;
+        min-width: 150px;
+
+        input {
+          width: 120px;
+          padding: 2px 5px;
+          border-radius: 3px;
+        }
+
+      }
+    }
+  }
+
+}

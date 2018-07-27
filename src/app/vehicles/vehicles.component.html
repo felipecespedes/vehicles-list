@@ -1,0 +1,51 @@
+<div class="vehicles">
+  <table>
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Color</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehicle of vehicles" [class.editing]="isEditing(vehicle)">
+        <ng-container *ngIf="isEditing(vehicle); else readonly">
+          <td>
+            <input type="text" [(ngModel)]="vehicle.brand">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="vehicle.model">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="vehicle.year">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="vehicle.color">
+          </td>
+          <td>
+            <button (click)="saveVehicle(vehicle)">Save</button>
+          </td>
+        </ng-container>
+        <ng-template #readonly>
+          <td>
+            <span>{{vehicle.brand}}</span>
+          </td>
+          <td>
+            <span>{{vehicle.model}}</span>
+          </td>
+          <td>
+            <span>{{vehicle.year}}</span>
+          </td>
+          <td>
+            <span>{{vehicle.color}}</span>
+          </td>
+          <td>
+            <button (click)="assingEditingVehicle(vehicle)">Modify</button>
+          </td>
+        </ng-template>
+      </tr>
+    </tbody>
+  </table>
+</div>
